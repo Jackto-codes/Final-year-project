@@ -1,0 +1,31 @@
+@import "./fonts.css";
+@import "./theme.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  font-family: 'Inter', sans-serif;
+  color: #18181b;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.tight-space {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
