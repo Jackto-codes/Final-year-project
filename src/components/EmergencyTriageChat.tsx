@@ -74,11 +74,7 @@ export default function EmergencyTriageChat() {
   const [locationStep, setLocationStep] = useState<"category" | "location" | "confirmed" | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<"College" | "Hostel" | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loading]);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const handleSend = async () => {
     const trimmed = input.trim();
@@ -154,7 +150,10 @@ export default function EmergencyTriageChat() {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex flex-col gap-4 p-5 min-h-[280px] max-h-[380px] overflow-y-auto bg-[#fafaf9]">
+      <div 
+        ref={chatContainerRef}
+        className="flex flex-col gap-4 p-5 min-h-[280px] max-h-[380px] overflow-y-auto bg-[#fafaf9]"
+      >
         {messages.map((msg, i) => (
           <div
             key={i}
@@ -188,7 +187,6 @@ export default function EmergencyTriageChat() {
           </div>
         )}
 
-        <div ref={bottomRef} />
       </div>
 
       {/* Assessment Result Card */}
